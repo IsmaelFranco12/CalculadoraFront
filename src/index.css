@@ -1,16 +1,75 @@
-.display {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.calculator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
   background-color: #f0f0f0;
-  padding: 10px;
-  border-radius: 5px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 0 auto;
 }
-.buttons button {
-  font-size: 1.5rem;
-  margin: 0.5rem;
+
+/* Pantalla de la calculadora */
+.calculator-screen {
+  width: 100%;
+  height: 50px;
+  background-color: #333;
+  color: white;
+  text-align: right;
+  font-size: 24px;
+  border-radius: 10px;
   padding: 10px;
+  box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
 }
-.history {
-  margin-top: 2rem;
-  font-family: Arial, sans-serif;
+
+/* Estilo de los botones */
+.calculator-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+.calculator-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 18px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.calculator-button:hover {
+  background-color: #45a049;
+}
+
+.calculator-button:active {
+  background-color: #388e3c;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón de igual con un color diferente */
+.calculator-button.equal {
+  background-color: #FF5722;
+  grid-column: span 2;
+}
+
+.calculator-button.equal:hover {
+  background-color: #e64a19;
+}
+
+/* Botones de operación con un color diferente */
+.calculator-button.operation {
+  background-color: #2196F3;
+}
+
+.calculator-button.operation:hover {
+  background-color: #1976D2;
 }
