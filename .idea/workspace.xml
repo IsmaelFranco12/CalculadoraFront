@@ -5,15 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6525395c-c4dd-4e49-a467-7b8442657d02" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Button.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Calculator.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Display.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Button.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Calculator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Calculator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Display.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Display.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

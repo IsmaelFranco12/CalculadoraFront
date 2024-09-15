@@ -9,20 +9,26 @@ function Calculator() {
         if (label === '=') {
             try {
                 const [operator] = input.match(/[\+\-\*\/]/) || [''];
-                const operands = input.split(/[\+\-\*\/]/).map(op => op.trim()).filter(op => op !== '');
+                const [num1, num2] = input.split(operator).map(num => num.trim());
+
+                if (!num1 || !num2) {
+                    setResult('Error');
+                    return;
+                }
+
                 let response;
                 switch (operator) {
                     case '+':
-                        response = await axios.post('http://localhost:8080/api/calculadora/sumar', { operands });
+                        response = await axios.get('http://localhost:8080/api/calculadora/sumar', { params: { num1, num2 } });
                         break;
                     case '-':
-                        response = await axios.post('http://localhost:8080/api/calculadora/restar', { operands });
+                        response = await axios.get('http://localhost:8080/api/calculadora/restar', { params: { num1, num2 } });
                         break;
                     case '*':
-                        response = await axios.post('http://localhost:8080/api/calculadora/multiplicar', { operands });
+                        response = await axios.get('http://localhost:8080/api/calculadora/multiplicar', { params: { num1, num2 } });
                         break;
                     case '/':
-                        response = await axios.post('http://localhost:8080/api/calculadora/dividir', { operands });
+                        response = await axios.get('http://localhost:8080/api/calculadora/dividir', { params: { num1, num2 } });
                         break;
                     default:
                         setResult('Error');
