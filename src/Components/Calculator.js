@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Button from './Button';
-import Display from './Display';
 import axios from 'axios';
 
 function Calculator() {
@@ -10,7 +8,26 @@ function Calculator() {
     const handleClick = async (label) => {
         if (label === '=') {
             try {
-                const response = await axios.post('http://localhost:8080/calculate', { expression: input });
+                const [operator] = input.match(/[\+\-\*\/]/) || [''];
+                const operands = input.split(/[\+\-\*\/]/).map(op => op.trim()).filter(op => op !== '');
+                let response;
+                switch (operator) {
+                    case '+':
+                        response = await axios.post('http://localhost:8080/api/calculadora/sumar', { operands });
+                        break;
+                    case '-':
+                        response = await axios.post('http://localhost:8080/api/calculadora/restar', { operands });
+                        break;
+                    case '*':
+                        response = await axios.post('http://localhost:8080/api/calculadora/multiplicar', { operands });
+                        break;
+                    case '/':
+                        response = await axios.post('http://localhost:8080/api/calculadora/dividir', { operands });
+                        break;
+                    default:
+                        setResult('Error');
+                        return;
+                }
                 setResult(response.data.result);
             } catch (error) {
                 setResult('Error');
@@ -19,18 +36,29 @@ function Calculator() {
             setInput('');
             setResult('');
         } else {
-            setInput(input + label);
+            setInput(prevInput => prevInput + label);
         }
     };
 
-    const buttons = ['1', '2', '3', '+', '4', '5', '6', '-', '7', '8', '9', '*', 'C', '0', '=', '/'];
+    const buttons = [
+        '1', '2', '3', '+',
+        '4', '5', '6', '-',
+        '7', '8', '9', '*',
+        'C', '0', '=', '/'
+    ];
 
     return (
         <div className="calculator">
-            <Display value={result || input} />
+            <div className="display">{result || input || '0'}</div>
             <div className="buttons">
                 {buttons.map(label => (
-                    <Button key={label} label={label} onClick={handleClick} />
+                    <button
+                        key={label}
+                        onClick={() => handleClick(label)}
+                        className={label === 'C' ? 'special' : label === '=' ? 'equals' : ''}
+                    >
+                        {label}
+                    </button>
                 ))}
             </div>
         </div>

@@ -1,16 +1,93 @@
+/* Estilos para la calculadora */
+.calculator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 320px; /* Tamaño fijo para hacer la calculadora cuadrada */
+  height: 400px; /* Ajusta la altura según sea necesario */
+  border-radius: 15px;
+  background: #333; /* Fondo oscuro */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: auto;
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+}
+
 .display {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  background-color: #f0f0f0;
+  width: 100%;
+  height: 80px;
+  background: #222; /* Fondo oscuro para el display */
+  color: #fff; /* Texto blanco */
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 2rem; /* Tamaño del texto */
   padding: 10px;
-  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  overflow-x: auto; /* Permite el desbordamiento del texto */
 }
-.buttons button {
-  font-size: 1.5rem;
-  margin: 0.5rem;
-  padding: 10px;
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
 }
-.history {
-  margin-top: 2rem;
-  font-family: Arial, sans-serif;
+
+button {
+  width: 100%;
+  height: 60px; /* Altura uniforme para todos los botones */
+  font-size: 1.5rem; /* Tamaño del texto en los botones */
+  border: none;
+  border-radius: 10px;
+  background: #444; /* Fondo de los botones */
+  color: #fff; /* Texto blanco */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+  display: flex; /* Usar flexbox para alinear el texto */
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+button:hover {
+  background: #555; /* Fondo al pasar el mouse */
+}
+
+button:active {
+  background: #666; /* Fondo al hacer clic */
+  transform: translateY(2px); /* Efecto de presionar */
+}
+
+/* Estilo para el botón especial 'C' y '=' para destacarlos */
+button.special {
+  background: #f76c6c; /* Fondo rojo para el botón de 'C' */
+  color: #fff; /* Texto blanco */
+}
+
+button.special:hover {
+  background: #e55b5b; /* Fondo rojo más oscuro */
+}
+
+button.special:active {
+  background: #d44b4b; /* Fondo rojo aún más oscuro */
+}
+
+button.equals {
+  background: #4caf50; /* Fondo verde para el botón de '=' */
+  color: #fff; /* Texto blanco */
+  grid-column: span 2; /* Hacer el botón de '=' más ancho */
+}
+
+button.equals:hover {
+  background: #45a049; /* Fondo verde más oscuro */
+}
+
+button.equals:active {
+  background: #388e3c; /* Fondo verde aún más oscuro */
 }
