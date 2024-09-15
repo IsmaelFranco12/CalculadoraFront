@@ -1,11 +1,12 @@
 import React from 'react';
+import './Display.css'; // Asegúrate de crear un archivo CSS para este componente.
 
-function Display({ value }) {
+const Display = ({ value }) => {
     return (
-        <div className="display">
+        <div className="calculator-screen">
             {value}
         </div>
     );
-}
+};
 
 export default Display;
